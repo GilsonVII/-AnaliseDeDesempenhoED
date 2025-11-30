@@ -3,10 +3,12 @@ package main;
 import estruturas.ArvoreAVL;
 import estruturas.ArvoreBinaria;
 import estruturas.Vetor;
+import ordenacao.QuickSort;
 import ordenacao.SelectionSort;
 
 public class Programa {
     public static void main(String[] args){
+        //========================Selection Sort===========================
         //Testes do Vetor
         System.out.println("=== TESTE DE ORDENAÇÃO: SELECTION SORT ===");
         
@@ -78,5 +80,33 @@ public class Programa {
     
         System.out.println("\nBusca pelo 1: " + avl.buscar(1));
         System.out.println("Busca pelo 5: " + avl.buscar(5));
+
+        //=========================Quick Sort================================
+        System.out.println("=== TESTE DE ORDENAÇÃO DE VETOR: QUICK SORT ===");
+        
+        Vetor meuVetorQK = new Vetor();
+        
+        // Dados bagunçados
+        System.out.println("Adicionando: 50, 10, 30, 5, 20");
+        meuVetorQK.adicionar(50);
+        meuVetorQK.adicionar(10);
+        meuVetorQK.adicionar(30);
+        meuVetorQK.adicionar(5);
+        meuVetorQK.adicionar(20);
+        
+        System.out.print("Antes: ");
+        meuVetor.imprimir();
+        
+        QuickSort qs = new QuickSort();
+        qs.ordenar(meuVetorQK);
+        
+        System.out.print("Depois: ");
+        meuVetorQK.imprimir();
+        
+        if (meuVetorQK.get(0) == 5 && meuVetorQK.get(4) == 50) {
+            System.out.println("SUCESSO! QuickSort funcionou.");
+        } else {
+            System.out.println("Falhou! Vetor não ordenou.");
+        }
     }
 }
